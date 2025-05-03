@@ -9,8 +9,24 @@ const Post = ({post}) => {
     setImageUrl(`${BASE_API_URL}/images/${post.image_url}`)
   }, [post.image_url])
 
-  const handleDelete = (id) => {
-    console.log('will delete post with id:', id)
+  const handleDelete = (e) => {
+    e.preventDefault()
+
+    const requestOptions = {
+      method: 'DELETE',
+    }
+    
+    fetch(`${BASE_API_URL}/posts/${post.id}`, requestOptions)
+      .then(response => {
+        if (response.ok) {
+          window.location.reload()
+        }
+
+        throw response
+      })
+      .catch(error => {
+        console.error('Error deleting post with id: ', post.id, error)
+      })
   }
 
   return (
@@ -23,7 +39,7 @@ const Post = ({post}) => {
           <div className="post-delete">
             <button 
               className="delete-button"
-              onClick={() => handleDelete(post.id)}
+              onClick={handleDelete}
             >
               Delete
             </button>
