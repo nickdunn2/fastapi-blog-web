@@ -2,6 +2,7 @@ import './App.css'
 import React, { useEffect, useState } from 'react'
 import { BASE_API_URL } from './constants'
 import Post from './Post'
+import NewPost from './NewPost'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -23,6 +24,9 @@ function App() {
         {posts.map(post => (
           <Post key={post.id} post={post} />
         ))}
+      </div>
+      <div className="new-post-container">
+        <NewPost />
       </div>
     </div>
   );

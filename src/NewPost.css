@@ -1,0 +1,22 @@
+.new-post {
+  width: 60%;
+  margin-bottom: 50px;
+}
+
+.new-post-image {
+  margin: 5px;
+  padding: 5px;
+}
+
+.new-post-creator, .new-post-title, .new-post-content {
+  font-size: small;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+}
+
+.create-post-button {
+  font-size: small;
+  margin: 5px;
+  padding: 5px;
+}
